@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/assets/app.css" />
+    <title>Summarize &amp; Analyze — DarkGPT</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked@12/marked.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@3/dist/purify.min.js" defer></script>
+    <script type="module" src="/assets/tools.js"></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="/"><span class="brand-mark">🤖</span>DarkGPT</a>
+      <nav class="nav">
+        <a href="/">Home</a>
+        <a href="/chat">Chat</a>
+        <a href="/tools" aria-current="page">Summarize &amp; Analyze</a>
+      </nav>
+    </header>
+    <main class="tools">
+      <span class="eyebrow">Accelerate knowledge with DarkGPT 🤖</span>
+      <h1 id="tool-title">Summarize</h1>
+      <p class="sub" id="tool-sub">Turn long text into a short, faithful summary.</p>
+
+      <div class="tabs" role="tablist">
+        <button role="tab" id="tab-summarize" aria-selected="true">Summarize</button>
+        <button role="tab" id="tab-analyze" aria-selected="false">Analyze</button>
+      </div>
+
+      <div class="source" role="radiogroup" aria-label="Input source">
+        <label><input type="radio" name="source" value="text" checked /> I want to input some text</label>
+        <label><input type="radio" name="source" value="file" /> I want to upload a file</label>
+      </div>
+
+      <div id="text-source">
+        <textarea id="text" maxlength="10000" aria-label="Text"></textarea>
+      </div>
+      <div id="file-source" hidden>
+        <label class="dropzone" id="dropzone">
+          <input type="file" id="file" accept=".txt,text/plain" hidden />
+          <div>📄 <strong>Drop a .txt file here</strong> or click to browse</div>
+          <div id="file-name" style="margin-top: 8px; font-size: 13px"></div>
+        </label>
+      </div>
+
+      <div class="tool-row">
+        <span class="count" id="count"></span>
+        <button class="btn btn-primary" id="run">Summarize</button>
+      </div>
+
+      <p class="error" id="error" hidden></p>
+      <div id="output"></div>
+    </main>
+  </body>
+</html>
