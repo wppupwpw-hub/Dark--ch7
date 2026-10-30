@@ -1,0 +1,6 @@
+[build]
+  publish = "public"
+
+[build.environment]
+  # requirements.txt (legacy Streamlit app) is still installed by the build; its pins need Python 3.11
+  PYTHON_VERSION = "3.11"
